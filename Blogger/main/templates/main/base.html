@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Blogger{% endblock %}</title>
+ 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+ 
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+</head>
+ 
+<body>
+ 
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="navbar__inner">
+ 
+      <a href="{% url 'main:home' %}" class="navbar__brand">
+        ✦ <span>Blog</span>ger
+      </a>
+ 
+      <nav class="navbar__links">
+        <a href="{% url 'main:home' %}">Home</a>
+        <a href="{% url 'main:add_post' %}">Write</a>
+ 
+        <!-- Dark / Light toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle dark mode">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </nav>
+ 
+    </div>
+  </header>
+ 
+  <!-- Page content -->
+  <main class="page-wrapper">
+    {% block content %}{% endblock %}
+  </main>
+ 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Made with ♥ by <a href="{% url 'main:home' %}">Blogger</a> &nbsp;·&nbsp; {% now "Y" %}</p>
+  </footer>
+ 
+  <!-- Theme toggle script -->
+  <script>
+    (function () {
+      const html        = document.documentElement;
+      const btn         = document.getElementById('themeToggle');
+      const icon        = document.getElementById('themeIcon');
+      const STORAGE_KEY = 'blogger-theme';
+ 
+      // Restore saved preference (or default to light)
+      const saved = localStorage.getItem(STORAGE_KEY) || 'light';
+      applyTheme(saved);
+ 
+      btn.addEventListener('click', function () {
+        const current = html.getAttribute('data-theme');
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+ 
+      function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        localStorage.setItem(STORAGE_KEY, theme);
+      }
+    })();
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Blogger — Home{% endblock %}
+
+{% block content %}
+
+  <!-- Hero banner -->
+  <section class="hero">
+    <span class="hero__label">✦ Welcome</span>
+    <h1 class="hero__title">Ideas worth<br><em>reading</em>.</h1>
+    <p class="hero__subtitle">A space for thoughts, stories, and everything in between.</p>
+  </section>
+
+  <!-- Posts grid -->
+  <div class="section-header">
+    <h2>Latest Posts</h2>
+    <span class="post-count">{{ posts.count }} post{{ posts.count|pluralize }}</span>
+  </div>
+
+  <div class="posts-grid">
+  {% for post in posts %}
+    <article class="post-card">
+      <span class="post-card__tag">✦ Post</span>
+
+      <h3 class="post-card__title">{{ post.title }}</h3>
+
+      <p class="post-card__content">{{ post.content }}</p>
+
+      <div class="post-card__footer">
+        <span class="post-card__date">
+          {{ post.published_at|date:"M d, Y" }}
+        </span>
+        <span class="post-card__read">Read →</span>
+      </div>
+    </article>
+
+  {% empty %}
+    </div> 
+    <div class="empty-state">
+      <span class="empty-state__icon">✦</span>
+      <h3>No posts yet</h3>
+      <p>Be the first to share something wonderful.</p>
+      <a href="{% url 'main:add_post' %}">Write your first post</a>
+    </div>
+  {% endfor %}
+
+{% endblock %}
+</div>
