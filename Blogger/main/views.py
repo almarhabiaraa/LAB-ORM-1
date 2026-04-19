@@ -15,6 +15,6 @@ def add_post(request):
         content = request.POST.get('content')
 
         Post.objects.create(title=title, content=content)
-        return redirect('home')
+        return redirect('main:home')
 
     return render(request, 'main/add_post.html')

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* ── CSS Variables ────────────────────────────────────────── */
+/* CSS Variables */
 :root {
   /* Light mode */
   --bg:           #faf8f4;
@@ -38,7 +38,7 @@
   --gradient-hero: linear-gradient(135deg, #1e1b18 0%, #231f1a 50%, #131110 100%);
 }
 
-/* ── Reset & Base ─────────────────────────────────────────── */
+/* Reset & Base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
@@ -53,7 +53,7 @@ body {
   min-height: 100vh;
 }
 
-/* ── Navigation ───────────────────────────────────────────── */
+/* Navigation */
 .navbar {
   position: sticky;
   top: 0;
@@ -141,14 +141,14 @@ body {
   transform: rotate(15deg);
 }
 
-/* ── Page Layout ──────────────────────────────────────────── */
+/* Page Layout */
 .page-wrapper {
   max-width: 1100px;
   margin: 0 auto;
   padding: 48px 24px 80px;
 }
 
-/* ── Hero Section ─────────────────────────────────────────── */
+/* Hero Section */
 .hero {
   background: var(--gradient-hero);
   border-radius: var(--radius);
@@ -209,7 +209,7 @@ body {
   max-width: 420px;
 }
 
-/* ── Section Header ───────────────────────────────────────── */
+/* Section Header */
 .section-header {
   display: flex;
   align-items: baseline;
@@ -231,7 +231,7 @@ body {
   font-weight: 400;
 }
 
-/* ── Post Cards Grid ──────────────────────────────────────── */
+/* Post Cards Grid */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -347,7 +347,7 @@ body {
 
 .post-card:hover .post-card__read { gap: 8px; }
 
-/* ── Empty State ──────────────────────────────────────────── */
+/* Empty State */
 .empty-state {
   text-align: center;
   padding: 80px 24px;
@@ -385,7 +385,7 @@ body {
 
 .empty-state a:hover { opacity: 0.85; }
 
-/* ── Form Page ────────────────────────────────────────────── */
+/* Form Page */
 .form-page {
   display: grid;
   grid-template-columns: 1fr 340px;
@@ -518,53 +518,7 @@ body {
   color: var(--text-primary);
 }
 
-/* Form sidebar tips */
-.form-tips {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
-  box-shadow: var(--shadow-sm);
-}
-
-.form-tips h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.tip-item {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.tip-item:last-child { margin-bottom: 0; }
-
-.tip-icon {
-  width: 28px; height: 28px;
-  background: var(--accent-light);
-  color: var(--accent);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  flex-shrink: 0;
-}
-
-.tip-text {
-  font-size: 0.83rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* ── Footer ───────────────────────────────────────────────── */
+/*  Footer */
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 24px;
@@ -578,7 +532,7 @@ body {
   text-decoration: none;
 }
 
-/* ── Animations ───────────────────────────────────────────── */
+/*  Animations  */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -590,7 +544,7 @@ body {
 .form-card     { animation: fadeUp 0.55s 0.1s ease both; }
 .form-tips     { animation: fadeUp 0.55s 0.25s ease both; }
 
-/* ── Responsive ───────────────────────────────────────────── */
+/* Responsive */
 @media (max-width: 640px) {
   .navbar__inner { padding: 0 16px; }
   .page-wrapper  { padding: 24px 16px 60px; }
